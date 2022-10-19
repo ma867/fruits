@@ -1,0 +1,87 @@
+// Require modules
+const fs = require('fs') // this engine requires the fs module like we did Saturday
+const express = require('express')
+const { fruits, veggies } = require('./models/fruits')
+// this makes 2 const fruits & veggies 
+
+// Create our express app
+const app = express()
+
+// Configure the app (app.set)
+/*Start Config */
+
+//OG ENGINE
+// app.engine('evelyn', (filePath, options, callback) => { // define the view engine called hypatia
+//     fs.readFile(filePath, (err, content) => {
+//       if (err) return callback(err)
+//       // this is an extremely simple view engine we'll be more complex later
+//       const rendered = content.toString()
+//         .replace('#title#', `<title>${options.title}</title>`)
+//         .replace('#message#', `<h1>${options.message}</h1>`)
+//         .replace('#content#',`<div>${Array.isArray(options.content)? options.content.map(item => `<li>${item}</li>`).join('') : options.content }</div>` )
+//       return callback(null, rendered)
+//     })
+//   })
+//   app.set('views', './views') // specify the views directory
+//   app.set('view engine', 'evelyn') // register the evelyn view engine
+
+  app.engine('jsx', require('jsx-view-engine').createEngine())
+  app.set('view engine', 'jsx') // register the evelyn view engine
+
+
+/* END CONFIG */
+
+// Mount our middleware (app.use)
+
+/*Start Middleware */
+
+
+/* END Middleware */
+
+// Mount Routes
+/*Start Routes */
+
+
+// INDEX --- READ --- GET
+app.get('/fruits', (req, res) => {
+  res.render('template', { title: 'Fruits Index Page', 
+  message: 'Fruits Index', 
+  content: fruits.map((fruit) => `${fruit.name} is ${fruit.color} and ${fruit.readyToEat? 'is ready to eat': 'isn\'t ready to eat'}`) })
+})
+
+// NEW (Not applicable in an api)
+
+// DELETE
+
+// UPDATE
+
+// CREATE
+
+// EDIT (not applicable in an api)
+
+
+// SHOW ---- READ ---- GET
+// app.get('/fruits/:i', (req, res) => {
+//   const fruit = fruits[req.params.i]
+//   res.render('template', {
+//     title: fruit.name,
+//     message: `The ${fruit.color} ${fruit.color}`,
+//     content: `${fruit.name} is ${fruit.color} and ${fruit.readyToEat? 'its ready to eat': 'its not ready to eat'}`
+//   })
+// })
+
+app.get('/fruits/:i', (req, res) => {
+  res.render('fruits/Show', {
+   fruit: fruits[req.params.i]
+  })
+ })
+
+
+
+/* END ROUTES */
+
+
+// Tell the app to listen on a port
+app.listen(3000, () => {
+    console.log('Listening on Port 3000')
+})

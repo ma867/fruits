@@ -1,0 +1,105 @@
+/* ==== Cards using Bootstrap === */
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+
+
+@keyframes animate{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+.display-3{
+  font-family: 'Poppins', sans-serif!important;
+  color: #fff!important;
+  
+}
+
+body{
+  font-family: 'Quicksand', serif!important;
+  background: linear-gradient(-45deg, #7686df 0%, #8b86ef 13%, #b596ea 25%, #cca7ea 38%, #eba9e7 50%, #f2b8cd 62%, #f5b7ae 75%, #f4caaa 87%, #f5d59d 100%);
+  background-size: 400% 400%;
+  position: relative;
+  animation: animate 10s ease-in-out infinite;
+}
+.form-control{
+    border-color: #1f194c!important;
+}
+
+.logo{
+    width:400px;
+  }
+nav a {
+    padding-top: 20px;
+    padding: 20px;
+    color: #f8f8ff;
+    text-decoration: none;
+    position: relative;
+    top: 0;
+    transition: top ease 0.5s;
+  }
+  nav a:hover {
+    color: rgb(255, 23, 131);
+    text-decoration: none;
+    top: -10px;
+  }
+
+#cards .card {
+    border-radius: 10px;
+    min-height: 100%;
+  background-color: #f8f8ff!important;
+  color: #1f194c;
+  
+}
+
+#cards .heading-border {
+    position: absolute;
+    width: 100%;
+    top: 60%;
+}
+
+#cards .card .user-picture img {
+    position: absolute;
+    top: -20%;
+    right: 10%;
+    background: white!important;
+    padding: 10px;
+}
+
+#cards .card .user-content .user-name {
+    padding-top:20px;
+    margin-right: 150px;
+    color:  #1f194c!important;
+}
+#cards .card .user-content .user-name a{
+    text-decoration: none;
+    color:  #1f194c!important;
+}
+#cards .card .user-content .user-name a:hover{
+    text-shadow: 0 0 35px rgba(31, 25, 76, 10);
+}
+.delete{
+  color: #1f194c;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid #1f194c;
+  background: transparent;
+}
+.delete:hover {
+  background-color: rgba(31, 25, 76, 0.12);
+  color: #1f194c;
+  text-shadow: 0 0 35px rgba(255, 255, 255, 1.3);
+  text-decoration: none;
+}
